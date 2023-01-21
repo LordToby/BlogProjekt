@@ -48,7 +48,7 @@ const User = mongoose.model("User", userSchema);
 
 let storage = multer.diskStorage({
   destination: function(req, file, cb){
-    cb(null,'./uploads')
+    cb(null,'./tmp/uploads')
   },
   filename: function(req, file, cb){
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -68,7 +68,7 @@ app.set('view engine', 'ejs');
 app.use(paginate.middleware(10, 50))
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.json());
-app.use(express.static(path.join(__dirname, "/uploads")));
+app.use(express.static(path.join(__dirname, "/tmp/uploads")));
 app.use(express.static(path.join(__dirname + "/public")));
 app.use(express.static(path.join(__dirname, "/public/javascript")))
 app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
