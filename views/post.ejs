@@ -1,0 +1,15 @@
+<%- include("partials/header"); -%>
+
+  <h1 class="heading"><%=post.title%></h1>
+
+  <img class="article-image"src="/<%=post.img%>"><br> <br>
+  <span class="sub-text sub-text-article"> Skrevet af Jeppe Møller Mortensen d. <%=post.date%> </span>
+
+  <hr>
+
+  <div class="row">
+    <div class="col-md">
+  <p class="bread-text"><%=post.content.replace(/<[^>]*>/g, "")%></p>
+</div>
+</div>
+<%- include("partials/footer"); -%>

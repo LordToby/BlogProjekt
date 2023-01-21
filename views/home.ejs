@@ -1,0 +1,50 @@
+
+<%- include("partials/header"); -%>
+    <h1>Verden er i forandring. Men kan vi nå at følge med?</h1>
+
+<p>Velkommen til min hjemmeside, der skildrer politiske og sociale begivenheder rundt i verden og forsøger at dække det ud fra flere vinkler.
+  Verden genenmgår i disse år en drastisk forandring. Vi oplever flere globale kriser Heriblandt pandemier, klimaforandringer og militære aggressioner fra stormagter.
+  Imens skal vi borgere vælge ledere, der skal forsøge at håndtere disse kriser på bedst mulig vis.
+  Det kan synes overskueligt og svært at finde en mening i. Dette ønsker jeg at give et bedre indblik i, hvilket er formålet med denne hjemmeside</p>
+
+  <% if(posts.length > 0){ %> 
+<div class="selected-stories">
+<h3>Udvalgte historier</h3>
+</div>
+<br>
+
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner front-posts">
+
+    <div class="carousel-item active">
+      <h2><%=posts[0].title %> </h2>
+      <img class="front-image" src="<%=posts[0].img%>" alt="no picture">
+      <p class="carousel-text"><%=posts[0].content.substring(0, 50).replace(/<[^>]*>/g, "") + " ..."%> </p>
+      <a href="/posts/<%=posts[0]._id%>">Læs mere</a>
+    </div>
+    <% for(let i = 1; i <posts.length; i++){  %> 
+    <div class="carousel-item front-post">
+      <h2><%=posts[i].title %> </h2>
+      <img class="front-image" src="<%=posts[i].img%>" alt="no picture">
+      <p class="carousel-text"><%=posts[i].content.substring(0, 50).replace(/<[^>]*>/g, "") + " ..."%> </p>
+      <a href="/posts/<%=posts[i]._id%>">Læs mere</a>
+    </div>
+    <% } %> 
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" style="color: black;" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+<% } %> 
+
+<!-- <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script> -->
+<%- include("partials/footer"); -%>

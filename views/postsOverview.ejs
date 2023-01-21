@@ -1,0 +1,51 @@
+<%- include("partials/header"); -%>
+
+    <h1 class="heading">Artikler</h1>
+     
+    <br>
+
+   <% if(posts.length > 0){ %> 
+
+  <%  posts.forEach(function(post){ %>
+
+ 
+    <!-- <img class="post-image hidden-image"> -->
+   <div class="post-container">
+    <h3> <img class="post-image" src="/<%=post.img%>" alt="no image for this entry"><%=post.title%></h3>
+    <span class="sub-text"><%=post.date %></span>
+    <p class="post-text">
+    <%=post.content.substring(0, 100).replace(/<[^>]*>/g, "") + " ..."%>
+    <br>
+    <a class="read-more" href="/posts/<%=post._id%>">Læs mere</a>
+    </p>
+
+    <p class="clear"></p>
+   </div>
+   <br>
+
+    <% }) %>
+
+    <% } %> 
+     
+    <% if (pages > 0) { %>
+      <ul class="pagination text-center">
+    
+          <% var i = (Number(current) > 5 ? Number(current) - 4 : 1) %>
+          <% if (i !== 1) { %>
+              <li class="page-num disabled"><a>...</a></li>
+          <% } %>
+          <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+              <% if (i == current) { %>
+                  <li class="page-num activeNum" disabled><a><%= i %></a></li>
+              <% } else { %>
+                  <li class="page-num"><a href="/postsOverview/<%= i %>"><%= i %></a></li>
+              <% } %>
+              <% if (i == Number(current) + 4 && i < pages) { %>
+                  <li class="page-num disabled"><a>...</a></li>
+              <% } %>
+          <% } %>
+         
+      </ul>
+  <% } %>
+
+<%- include("partials/footer"); -%>

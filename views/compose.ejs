@@ -1,0 +1,35 @@
+
+<%- include("partials/header"); -%>
+    <h1>Compose</h1>
+    <form enctype="multipart/form-data" class="" action="/compose" method="post">
+      <div class="form-group">
+        <label>Tittel</label>
+        <input class="form-control" type="text" required name="postTitle" value="<%=title%> ">
+        <br>
+        <p>Forhåndsvisning af billede. Når artiklen læses er billedet forstørret</p>
+        <img src="/<%=postImage %>" class="preview-image" name="imageSource" width="300px" height="150px"> <br> <br>
+        <input type="file" class="filename" name="postImage" accept="image/*"> 
+        <br>
+        <br>
+        <label>Indhold</label> <br>
+        <textarea class="form-control" required name="postBody" rows="5" cols="30"><%=content %> </textarea>
+        <input type="hidden" name="postId" value="<%=postId %>">        
+      </div>
+      <br>
+      <br>
+      <button class="btn btn-primary" type="submit" name="button">Udgiv artikel</button>    
+    </form>
+    <% if(isUpdate){ %>
+      <br>
+    <form class="" action="/deletePost" method="post">
+      <input type="hidden" name="deleteId" value="<%=postId %>">
+      <button class="btn btn-primary" type="submit" name="deleteButton">Slet artikel</button>
+    </form>
+    <br>
+   <% } %> 
+
+   <script type="application/javascript" src= "/tinymce/tinymce.min.js"></script>
+   <!-- Script element sourcing the TinyMCE configuration -->
+   <script type="application/javascript" src= "/javascript\tinymce_config.js"></script>
+
+<%- include("partials/footer"); -%>
