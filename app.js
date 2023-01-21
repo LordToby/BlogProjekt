@@ -332,7 +332,7 @@ app.post("/compose", upload.single("postImage"),  function(req, res){
 
 });
 
-app.post("/deletePost", isLoggedIn, (req, res)=>{
+app.post("/deletePost", (req, res)=>{
   const id = req.body.deleteId;
   console.log(id);
   Post.findByIdAndDelete(id, (err, document)=>{
