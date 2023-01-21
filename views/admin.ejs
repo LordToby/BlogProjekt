@@ -4,14 +4,14 @@
 <br>
 <%  posts.forEach(function(post){ %>
 
-    <a href="/admin/compose/<%=post._id%>"><span><%=post.title%></span></a>
+    <a href="/compose/<%=post._id%>"><span><%=post.title%></span></a>
     <br>
     <br>
 
     <% }) %>
 
     <div class="new-post">
-    <a href="/admin/compose">Skriv ny artikel</a>
+    <a href="/compose">Skriv ny artikel</a>
     </div>
     <br>
     <form enctype="multipart/form-data" method="get" action="/logout">
