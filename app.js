@@ -265,7 +265,7 @@ app.get("/compose/:postId", (req, res)=>{
   })
 })
 //isLoggedIn,
-app.post("/compose", isLoggedIn, upload.single("postImage"),  function(req, res){
+app.post("/compose", upload.single("postImage"),  function(req, res){
   let title = req.body.postTitle;
   let content = req.body.postBody;
   let id = req.body.postId;
