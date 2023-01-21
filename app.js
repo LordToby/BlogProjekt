@@ -302,7 +302,7 @@ app.post("/compose", upload.single("postImage"),  function(req, res){
         res.redirect("/admin");
       }
       else{
-        res.redirect("/admin/compose")
+        res.redirect("/compose")
       }
     });
   }
