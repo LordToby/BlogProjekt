@@ -2,7 +2,7 @@
 require('dotenv').config();
 const express = require("express");
 const bodyParser = require("body-parser");
-const session = require("express-session");
+
 const ejs = require("ejs");
 const path = require("path")
 const _ = require("lodash");
@@ -62,18 +62,13 @@ let isUpdate;
 //---------------------------------------
 const app = express();
 
+
+
 let cookieSession = require('cookie-session')
 let cookieParser = require("cookie-parser")
 app.set('view engine', 'ejs');
 
-app.use(paginate.middleware(10, 50))
-app.use(bodyParser.urlencoded({extended: true}));
-app.use(express.json());
-app.use(express.static(path.join(__dirname, "/uploads")));
-app.use(express.static(path.join(__dirname + "/public")));
-app.use(express.static(path.join(__dirname, "/public/javascript")))
-app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
-//app.use(cookieParser());
+const session = require("express-session");
 app.use(session({
     proxy: true,
     secret: process.env["SESSION-SECRET"],
@@ -122,6 +117,18 @@ passport.deserializeUser(function(id, done){
   })
 
 })
+
+
+app.use(paginate.middleware(10, 50))
+app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.json());
+app.use(express.static(path.join(__dirname, "/uploads")));
+app.use(express.static(path.join(__dirname + "/public")));
+app.use(express.static(path.join(__dirname, "/public/javascript")))
+app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
+//app.use(cookieParser());
+
+
 
 
 //-------------
