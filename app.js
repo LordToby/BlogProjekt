@@ -80,6 +80,9 @@ app.use(session({
     resave:false,
    // cookie: { maxAge: twoDay,secure:false },
     saveUnitialized: true,
+    cookie: {
+      maxAge: 1000 * 60 * 60 * 12, //12hours
+    },
 }));
 
 //passport.js
