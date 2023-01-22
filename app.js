@@ -123,7 +123,6 @@ passport.deserializeUser(function(id, done){
 
 })
 
-app.use(isLoggedIn);
 
 //-------------
 let postsToShow = [];
