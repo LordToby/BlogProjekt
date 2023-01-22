@@ -91,16 +91,7 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-passport.serializeUser(function(user, done){
-  done(null, user.id);
-})
 
-passport.deserializeUser(function(id, done){
-  User.findById(id, (err, user)=>{
-      done(err, user)
-  })
-
-})
 
 passport.use(new localStrategy(function(username, password, done){
   User.findOne({username: username}, function(err, user){
@@ -121,6 +112,18 @@ passport.use(new localStrategy(function(username, password, done){
   })
 }))
 
+passport.serializeUser(function(user, done){
+  done(null, user.id);
+})
+
+passport.deserializeUser(function(id, done){
+  User.findById(id, (err, user)=>{
+      done(err, user)
+  })
+
+})
+
+app.use(isLoggedIn);
 
 //-------------
 let postsToShow = [];
