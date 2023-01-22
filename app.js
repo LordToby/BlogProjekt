@@ -263,12 +263,12 @@ app.get("/admin", isLoggedIn, (req, res)=>{
 })
 //isLoggedIn
 //isLoggedIn
-app.get("/compose", isLoggedIn, function(req, res){
+app.get("/compose", function(req, res){
   isUpdate = false;
   res.render("compose",{title: "", content: "", postImage: "", postId: null, isUpdate:isUpdate});
 });
 //isLoggedIn
-app.get("/compose/:postId",isLoggedIn, (req, res)=>{
+app.get("/compose/:postId", (req, res)=>{
   isUpdate = true;
   const requestedId = req.params.postId;
   Post.findById(requestedId, (err, post)=>{
