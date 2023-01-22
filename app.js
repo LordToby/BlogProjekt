@@ -18,6 +18,7 @@ const fs = require("fs");
 const exp = require("constants");
 const encrypt = require("mongoose-encryption");
 const paginate = require("express-paginate");
+let loggedIn = false;
 //const upload = multer({limits: {fileSize:1064960}, dest: __dirname + '/uploads'}).single("picture");
 
 //-------------------------------------DB Setup-------------------------------
@@ -48,7 +49,7 @@ const User = mongoose.model("User", userSchema);
 
 let storage = multer.diskStorage({
   destination: function(req, file, cb){
-    cb(null,'/tmp/uploads')
+    cb(null,'./uploads')
   },
   filename: function(req, file, cb){
     cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
@@ -74,8 +75,10 @@ app.use(express.static(path.join(__dirname, "/public/javascript")))
 app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce')));
 //app.use(cookieParser());
 app.use(session({
+    proxy: true,
     secret: process.env["SESSION-SECRET"],
     resave:false,
+   // cookie: { maxAge: twoDay,secure:false },
     saveUnitialized: true,
 }));
 
@@ -247,12 +250,12 @@ app.get("/admin", isLoggedIn, (req, res)=>{
 })
 //isLoggedIn
 //isLoggedIn
-app.get("/compose",  function(req, res){
+app.get("/compose", isLoggedIn, function(req, res){
   isUpdate = false;
   res.render("compose",{title: "", content: "", postImage: "", postId: null, isUpdate:isUpdate});
 });
 //isLoggedIn
-app.get("/compose/:postId", (req, res)=>{
+app.get("/compose/:postId",isLoggedIn, (req, res)=>{
   isUpdate = true;
   const requestedId = req.params.postId;
   Post.findById(requestedId, (err, post)=>{
@@ -380,7 +383,9 @@ app.get("/login", isLoggedOut, (req, res)=>{
 app.post("/login", passport.authenticate('local', {
   successRedirect: "/admin",
   failureRedirect: "/login?error=true"
-}))
+  
+}),
+)
 
 app.get("/logout", (req, res)=> {
   req.logout((err)=>{
