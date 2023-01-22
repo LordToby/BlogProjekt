@@ -77,12 +77,13 @@ app.use('/tinymce', express.static(path.join(__dirname, 'node_modules', 'tinymce
 app.use(session({
     proxy: true,
     secret: process.env["SESSION-SECRET"],
-    resave:false,
+    resave:true,
    // cookie: { maxAge: twoDay,secure:false },
     saveUnitialized: true,
     cookie: {
       maxAge: 1000 * 60 * 60 * 12, //12hours
     },
+    cookie: { secure: false } // Remember to set this
 }));
 
 //passport.js
