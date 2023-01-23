@@ -23,7 +23,7 @@ let loggedIn = false;
 
 //-------------------------------------DB Setup-------------------------------
 
-mongoose.connect(`${process.env.CONNECTION}`, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(`mongodb+srv://tobi2202:politicalEnvironment2@clusterblog.ccl3uhc.mongodb.net/postDB?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
 
 const postSchema = {
   title: String,
@@ -71,7 +71,7 @@ app.set('view engine', 'ejs');
 const session = require("express-session");
 app.use(session({
     proxy: true,
-    secret: process.env["SESSION-SECRET"],
+    secret: "spiderdan",
     resave:true,
    // cookie: { maxAge: twoDay,secure:false },
     saveUnitialized: true,
@@ -148,7 +148,7 @@ app.get("/setup", async(req, res)=>{
 
   bcrypt.genSalt(10, function(err, salt){
       if(err) return next(err);
-      bcrypt.hash(process.env.PASSWORD, salt, function(err, hash){
+      bcrypt.hash("theisErEnKat", salt, function(err, hash){
           if(err) return next(err);
 
           const newAdmin = new User({
