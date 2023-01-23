@@ -72,9 +72,9 @@ const session = require("express-session");
 app.use(session({
     proxy: true,
     secret: process.env.SECRET,
-    resave:true,
+    resave:false,
    // cookie: { maxAge: twoDay,secure:false },
-    saveUnitialized: true,
+    saveUnitialized: false,
     cookie: {
       maxAge: 1000 * 60 * 60 * 12, //12hours
     },
