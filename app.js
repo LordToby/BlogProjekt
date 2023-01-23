@@ -263,7 +263,7 @@ app.get("/admin", isLoggedIn, (req, res)=>{
 })
 //isLoggedIn
 //isLoggedIn
-app.get("/compose", function(req, res){
+app.get("/compose", isLoggedIn, function(req, res){
   isUpdate = false;
   res.render("compose",{title: "", content: "", postImage: "", postId: null, isUpdate:isUpdate});
 });
