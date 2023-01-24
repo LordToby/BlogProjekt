@@ -23,7 +23,7 @@ let loggedIn = false;
 
 //-------------------------------------DB Setup-------------------------------
 
-mongoose.connect(`${process.env.CONNECTION}`, {useNewUrlParser: true, useUnifiedTopology: true})
+mongoose.connect(`mongodb+srv://tobi2202:politicalEnvironment2@clusterblog.ccl3uhc.mongodb.net/postDB?retryWrites=true&w=majority`, {useNewUrlParser: true, useUnifiedTopology: true})
 
 const postSchema = {
   title: String,
