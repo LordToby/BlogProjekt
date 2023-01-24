@@ -89,7 +89,7 @@ app.use(passport.session());
 
 
 passport.use(new localStrategy(function(username, password, done){
-  User.findOne({username: username}, function(err, user){
+  User.findOne({username:username}, function(err, user){
       if(err) return done(err);
       if(!user)
           return done(null, false, {message: "Incorrect username"})
@@ -138,7 +138,7 @@ let postsToShow = [];
 //Routes 
 
 app.get("/setup", async(req, res)=>{
-  const exists = await User.exists({name:"admin"});
+  const exists = await User.exists({username:"admin"});
 
   if(exists){
       console.log("Exists");
