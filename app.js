@@ -432,7 +432,7 @@ else
 }
 
 
-let port = process.env.PORT;
+let port = process.env.PORT || 3030;
 if (port == null || port == "") {
   port = 3000;
 }
