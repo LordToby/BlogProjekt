@@ -1,0 +1,21 @@
+<%- include("partials/header"); -%>
+
+  <h1 class="heading"><%=post.title%></h1>
+
+  <img class="article-image"src="/<%=post.img%>"><br> <br>
+  <span class="sub-text sub-text-article"> Skrevet af Jeppe Møller Mortensen d. <%=post.date%> </span>
+
+  <hr>
+   
+   <% if(post.audioFile !="" && post.audioFile != undefined){ %>
+    <audio controls id="audioControl">
+      <source src="/<%=post.audioFile%>" type="audio/mpeg">
+    </audio>
+    <br/>
+    <%}%>
+  <div class="row">
+    <div class="col-md">
+  <pre class="bread-text"><%-post.content%></pre>
+</div>
+</div>
+<%- include("partials/footer"); -%>
