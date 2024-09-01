@@ -4,8 +4,10 @@ html {
 }
 
 body{
-  background-color: rgb(172, 208, 230);
+  background-color: rgb(42, 111, 151);
+  color:white;
   overflow-x: hidden;
+  font-family: sans-serif;
 }
 
 h1{
@@ -13,11 +15,12 @@ h1{
 }
 
 .read-more-btn{
-  display: inline-block;
+  /* display: inline-block;
   padding: 5px 5px;
   border: 1px solid black;
   border-radius: 20%;
-  background-color: white;
+  background-color: white; */
+  color:white
 }
 
 .new-post{
@@ -149,6 +152,10 @@ p.clear{
   margin: 0 10% !important;
 }
 
+.nav-link{
+  font-size: 16px !important;
+}
+
 .nav li:hover{
 background-color: lightgray;
 }
@@ -167,7 +174,6 @@ background-color: lightgray;
 
 .logo-container{
   height: 4cm;
-  background-color: rgb(115, 133, 172);
 }
 
 .container-fluid {
@@ -182,7 +188,10 @@ background-color: lightgray;
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
-}
+    /* background-color: rgb(1, 58, 99) !important; */
+    margin: 0 11.5%;
+    border-radius: 25px;
+} 
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
@@ -207,7 +216,6 @@ background-color: lightgray;
 .footer p {
 	margin-top: 25px;
 	font-size: 12px;
-  color: black;
 }
 
 .admin-page{
@@ -261,6 +269,7 @@ p, pre{
     border-style: solid;
     width: 200px;
     height: 20vh;
+    color:white !important
 
   }
 

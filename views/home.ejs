@@ -23,7 +23,7 @@
     </div>
       <img class="front-image" src="<%=posts[0].img%>" alt="no picture">
       <p class="carousel-text"><%=posts[0].content.substring(0, 50).replace(/<[^>]*>/g, "") + " ..."%> </p>
-      <a href="/posts/<%=posts[0]._id%>">Læs mere</a>
+      <a href="/posts/<%=posts[0]._id%>" class="read-more-btn">Læs mere</a>
     </div>
     <% for(let i = 1; i <posts.length; i++){  %> 
     <div class="carousel-item front-post">
@@ -32,7 +32,7 @@
     </div>
       <img class="front-image" src="<%=posts[i].img%>" alt="no picture">
       <p class="carousel-text"><%=posts[i].content.substring(0, 50).replace(/<[^>]*>/g, "") + " ..."%> </p>
-      <a href="/posts/<%=posts[i]._id%>">Læs mere</a>
+      <a href="/posts/<%=posts[i]._id%>" class="read-more-btn">Læs mere</a>
       <br/>
     </div>
     <% } %> 
