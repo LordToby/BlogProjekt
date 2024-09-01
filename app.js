@@ -1,8 +1,8 @@
 //jshint esversion:6
 require('dotenv').config();
 const express = require("express");
+const expressLayout = require('express-ejs-layouts')
 const bodyParser = require("body-parser");
-
 const ejs = require("ejs");
 const path = require("path")
 const _ = require("lodash");
@@ -94,9 +94,10 @@ let isUpdate;
 const app = express();
 
 
-
+app.use(expressLayout);
 let cookieSession = require('cookie-session')
 let cookieParser = require("cookie-parser")
+app.set('layout', './layouts/layout')
 app.set('view engine', 'ejs');
 
 const session = require("express-session");

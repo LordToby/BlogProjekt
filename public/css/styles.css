@@ -4,14 +4,24 @@ html {
 }
 
 body{
-  background-color: rgb(201, 246, 235);
+  background-color: rgb(42, 111, 151);
+  color:white;
   overflow-x: hidden;
+  font-family: sans-serif;
 }
 
 h1{
   text-align: center;
 }
 
+.read-more-btn{
+  /* display: inline-block;
+  padding: 5px 5px;
+  border: 1px solid black;
+  border-radius: 20%;
+  background-color: white; */
+  color:white
+}
 
 .new-post{
   background-color: burlywood;
@@ -142,6 +152,10 @@ p.clear{
   margin: 0 10% !important;
 }
 
+.nav-link{
+  font-size: 16px !important;
+}
+
 .nav li:hover{
 background-color: lightgray;
 }
@@ -150,11 +164,16 @@ background-color: lightgray;
   font-size: 20px;
   text-align: center;
   margin: 5px 0;
+  border-top-width: 0.5px;
+  border-left-width: 0;
+  border-right-width: 0;
+  border-bottom-width: 0;
+  border-top-color: black;
+  border-style: solid;
 }
 
 .logo-container{
   height: 4cm;
-  background-color: #7f6c48;
 }
 
 .container-fluid {
@@ -169,7 +188,10 @@ background-color: lightgray;
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
-}
+    /* background-color: rgb(1, 58, 99) !important; */
+    margin: 0 11.5%;
+    border-radius: 25px;
+} 
 .navbar-nav  li a:hover {
     color: #1abc9c !important;
 }
@@ -188,13 +210,12 @@ background-color: lightgray;
 	bottom: 0;
 	width: 100%;
 	height: 60px;
-	background-color: #1abc9c;
+
 }
 
 .footer p {
 	margin-top: 25px;
 	font-size: 12px;
-  color: #fff;
 }
 
 .admin-page{
@@ -248,6 +269,7 @@ p, pre{
     border-style: solid;
     width: 200px;
     height: 20vh;
+    color:white !important
 
   }
 
